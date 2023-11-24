@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar Alumnos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+		<div>
+		<header>
+			<form>
+				<a type="button" class="btn btn-success" href="/index">Menú Inicio</a>
+				<a type="button" class="btn btn-success" href="/docente">Docentes</a>
+				<a type="button" class="btn btn-success" href="/alumno">Alumnos</a>
+				<a type="button" class="btn btn-success" href="/mostrarListado">Listado Alumnos</a>
+				<a type="button" class="btn btn-success" href="/mostrarListado2">Listado Docentes</a>
+				
+				<input type="button" class="btn btn-success" value="Actualizar Página" onclick="document.location.reload();">
+			</form>
+		</header>
+	</div>
+	
+	<div>
+		<br>
+	</div>
+	<div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+		<div class="container">
+			<div class="p-3 mb-2 bg-success text-white">
+				<h2>Carga de Alumnos</h2>
+			</div>
+  
+			<div>
+				<form th:object="${alumno}" th:action="@{/mostrarAlumno}" method="post">
+					<label for="fdni">ingrese el DNI</label>
+			        <input type="number" id="fdni"  th:field="*{dni}" required><br>
+			        <label for="fapellido">ingrese el Apellido</label>
+			        <input type="text" id="fapellido" th:field="*{apellido}" required><br>
+			        <label for="fnombre">ingrese el Nombre</label>
+			        <input type="text" id="fnombre"  th:field="*{nombre}" required><br>
+			        <label for="ffechanac">ingrese la Fecha de Nacimiento</label>
+			        <input type="date" id="ffechaNacnombre"  th:field="*{fechaNac}" ><br>
+			        <label for="fdomicilio">ingrese el Domicilio</label>
+			        <input type="text" id="fdomicilio"  th:field="*{domicilio}" ><br>
+			        <label for="ftelefono">ingrese el Telefono</label>
+			        <input type="number" id="ftelefono"  th:field="*{telefono}"><br>
+			        <label for="femail">ingrese el email</label>
+			        <input type="text" id="femail"  th:field="*{email}" ><br>
+			        <label for="festado">Estado</label>
+			        <input type="checkbox" id="festado"  th:field="*{estado}" ><br>
+			            
+			        <input type="submit" value="Cargar Alumno">
+				</form >
+			</div>
+		</div>
+	</div>
+</body>
+</html>
